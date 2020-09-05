@@ -1,0 +1,33 @@
+.spin{
+    position: fixed;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+ion-spinner {
+width: 28px;
+height: 28px;
+stroke: #444;
+fill: #222;
+}
+img{
+height: 70vh;
+width: auto;
+margin: auto;
+display: block;
+}
+
+.avatars{
+margin-top: 50%;  
+margin-left: 42%;;    
+}
+
+ion-content{
+
+  --ion-background-color:white;
+}
+
+ion-toolbar{
+--ion-background-color:white;
+
+}

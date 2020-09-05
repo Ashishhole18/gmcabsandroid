@@ -1,0 +1,64 @@
+
+<ion-content>
+  <form [formGroup]="localForm" (ngSubmit)="onFormSubmit()">
+  <ion-card class="ion-text-start" style="border-radius: 20px;">
+    <ion-row style="padding-top: 20px;padding-bottom: 20px;">
+      <ion-col size="1"></ion-col>
+      <ion-col size="10">
+        <ion-card>
+          <ion-item>
+            <ion-icon name="pin" slot="start"></ion-icon>
+            <ion-label>From</ion-label>
+            <ion-select  formControlName="picup_location" name="picup_location" okText="Okay" cancelText="Dismiss" [(ngModel)]="enqiry.picup_location">
+              <ion-select-option *ngFor="let local of Locals" value="{{local.local_name}}">{{local.local_name}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-card>
+        <ion-card>
+          <ion-item>
+            <ion-icon name="pin" slot="start"></ion-icon>
+            <ion-label>To</ion-label>
+            <ion-select  formControlName="dropoff_location" name="dropoff_location" value="brown" okText="Okay" cancelText="Dismiss" [(ngModel)]="enqiry.dropoff_location">
+              <ion-select-option *ngFor="let local of Locals" value="{{local.local_name}}">{{local.local_name}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-card>
+        <ion-card>
+          <ion-item>
+            <ion-icon name="car-outline" slot="start"></ion-icon>
+            <ion-label>Vehical Type</ion-label>
+            <ion-select  formControlName="vehicle_id" name="vehicle_type" >
+              <ion-select-option value="1">Auto</ion-select-option>
+              <ion-select-option value="2">Car</ion-select-option>
+            </ion-select>
+          </ion-item>
+      </ion-card>
+      <ion-card>
+            <ion-item>
+              <ion-icon name="people-outline" slot="start"></ion-icon>
+              <ion-input placeholder="No. of Passanger"></ion-input>
+            </ion-item>
+      </ion-card> 
+      <ion-card>  
+        <ion-item>
+          <ion-icon name="calendar-outline" slot="start"></ion-icon>
+          <ion-datetime formControlName="picup_date" name="Pickup_date" displayFormat="DD/MM/YYYY" placeholder="Select Date" [(ngModel)]="enqiry.picup_date"></ion-datetime>
+        </ion-item>
+      </ion-card>
+    <ion-card>
+      <ion-item>
+        <ion-icon name="alarm-outline" slot="start"></ion-icon>
+        <ion-datetime formControlName="picup_time" name="Pickup_time" displayFormat="h:mm a" placeholder="Select Time" [(ngModel)]="enqiry.picup_time"></ion-datetime>
+      </ion-item>
+    </ion-card> 
+  
+  </ion-col>
+    <ion-col size="1"></ion-col>
+  </ion-row>
+  <footer>
+    <ion-button type="submit" color="danger" expand="full" class="ion-no-margin">Submit</ion-button>
+  </footer>
+  </ion-card>
+</form>
+</ion-content>
+ 

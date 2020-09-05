@@ -1,0 +1,70 @@
+
+<ion-header>
+  <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-back-button defaultHref="home"></ion-back-button>
+        </ion-buttons>
+    <ion-title>My Rides</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content id="main">
+  <div class="spin" *ngIf="spinner">
+    <ion-spinner name="lines-small"></ion-spinner>
+</div>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)" color="danger">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+ 
+        <ion-item *ngFor="let ride of Rides">
+          <ion-grid>
+              <ion-row>
+                <ion-col size="2" [ngSwitch]="ride.vehicle_id">
+                  <span *ngSwitchCase="2"><img src="../../../../assets/icon/car.png" height="40px" width="40px"></span>
+                  <span *ngSwitchCase="1"><img src="../../../../assets/icon/auto.png" height="40px" width="40px"></span>
+                </ion-col>
+                <ion-col size="8" style="font-size:small;font-weight: bold;">
+                  <p>{{ ride.picup_date  | date }}, &nbsp;{{ ride.picup_time | date:'shortTime' }} </p>
+                   <b>{{ride.status_name}}</b> 
+                </ion-col>
+                <ion-col size="2"></ion-col>
+              </ion-row>
+              <ion-row style="padding: 0;margin: 0;">
+                <ion-col size="2"></ion-col>
+                <ion-col size="7">
+                  <ion-icon style="background-color: green;border-radius: 50%;font-size:9px"></ion-icon><span style="font-size: small;">&nbsp;&nbsp;{{ ride.picup_location }}</span>
+                </ion-col>
+                <ion-col size="3" [ngSwitch]="ride.enq_status" style="font-size:small;">
+                  <span *ngSwitchCase="1">
+                    <ion-buttons slot="primary" >
+                      <button ion-button  style="background-color:rgb(230, 100, 100);color: aliceblue;" (click)="cancelEnquiry(ride.enq_id)">
+                       Cancel
+                      </button>
+                    </ion-buttons>
+                  </span>
+                 <!---- <span *ngSwitchDefault [disabled]="true">{{ ride.status_name }}</span> -->
+                 
+                </ion-col>
+              </ion-row>
+              <!-- <ion-row style="padding: 0;margin: 0;">
+                <ion-col size="2"></ion-col>
+                <ion-col size="8">
+                  <ion-icon name="ellipsis-vertical-outline" style="font-size:18px"></ion-icon>
+                </ion-col>
+              </ion-row> -->
+              <ion-row style="padding: 0;margin: 0;">
+                <ion-col size="2"></ion-col>
+                <ion-col size="7">
+                  <ion-icon style="background-color: red;border-radius: 50%;font-size:9px;"></ion-icon><span style="font-size: small;">&nbsp;&nbsp;{{ ride.dropoff_location }}</span>
+                </ion-col>
+                <ion-col size="3"></ion-col>
+              </ion-row>
+          </ion-grid>
+        </ion-item>
+        <div *ngIf="len==0" style="padding-top: 50%;text-align: center;font-family: lato;color:darkgray;">
+          <p>No Ride Yet</p>
+        </div>
+  </ion-content>
+
+
+

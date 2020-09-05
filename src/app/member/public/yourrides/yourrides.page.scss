@@ -1,0 +1,29 @@
+/*ion-icon {
+    margin-right: 5px;
+    margin-left: 5px;
+    color: #86979f;
+    align-items: center;
+}*/
+
+
+img {
+    //background: url("../../../../assets/icon/car.png");
+    border-radius: 50%;
+    box-shadow: 
+    0px 0px 2px #5f5f5f
+    0px 0px 0px 5px #ecf0f3,
+    8px 8px 15px #a7aaaf,
+    -8px -8px 15px #ffff
+}
+.spin{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+ }
+ ion-spinner {
+    width: 28px;
+    height: 28px;
+    stroke: #444;
+    fill: #222;
+ }

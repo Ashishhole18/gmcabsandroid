@@ -1,0 +1,55 @@
+
+<ion-menu side="start"  menuId="main-menu" content-id="main">
+  <ion-content>
+    <div class="menu-header-bg"></div>
+      <div class="header-content">
+        <!-- <img src="../../../assets/icon/favicon.png"> -->
+        <ion-label>
+          <h2>{{userData.fullname}}</h2>
+          <p>+91 {{userData.mobile}}</p>
+        </ion-label>
+      </div>
+  
+    <ion-list class="menu-items" lines="none" >
+      <ion-item class="active">
+        <ion-icon name="paper-plane-outline"></ion-icon>Book Ride 
+      </ion-item>
+      <ion-item [routerLink]="['yourrides']">
+        <ion-icon name="timer-outline"></ion-icon>Your Rides 
+      </ion-item>
+      <ion-item (click)="logout()">
+        <ion-icon name="exit-outline"></ion-icon>Log out 
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  
+</ion-menu>
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" >
+      <ion-menu-button color="danger"></ion-menu-button>
+    </ion-buttons>
+    
+    <ion-title>Dashboard</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content id="main">
+  <ion-content >
+    <ion-tabs>
+  
+      <!-- Tab bar -->
+      <ion-tab-bar slot="top" color="danger" style="border-radius: 5px;padding-left: 20px;padding-right: 20px;">
+        <ion-tab-button tab="local">
+          <ion-label>LOCAL</ion-label>
+        </ion-tab-button>
+    
+        <ion-tab-button tab="outstation">
+          <ion-label>OUTSTATION</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </ion-content>
+</ion-content>
+
+

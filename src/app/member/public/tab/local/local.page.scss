@@ -1,0 +1,26 @@
+.ion-text-start {
+   // padding: 10px 5px 5px 5px;
+    border-radius: 40px;
+    background: #ffff;
+    box-shadow: 13px 13px 20px #cbced1,
+                -13px -13px 20px #ffff;
+}
+ion-content {
+    background: #cbced1;
+}
+
+.spin{
+    text-align: center;
+  }
+  ion-spinner {
+    width: 28px;
+    height: 28px;
+    stroke: #444;
+  }
+
+  ion-searchbar{
+    left: 50px;
+    width: calc(100% - 100px);
+    position: fixed;
+    ;
+}
